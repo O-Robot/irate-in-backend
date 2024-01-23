@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from datetime import datetime
+from .managers import CustomUserManager
 import uuid
 
 class User(AbstractBaseUser, PermissionsMixin):
