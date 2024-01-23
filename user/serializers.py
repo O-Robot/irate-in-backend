@@ -23,8 +23,6 @@ class CreateUserSerializer(serializers.ModelSerializer):
         email = attrs.get('email', None)
         if email:
             email = attrs['email'].lower().strip()
-            if get_user_model().objects.filter(email=email).exists():
-                raise serializers.ValidationError('Email already exists')
             try:
                 valid = validate_email(attrs['email'])
                 attrs['email'] = valid.email
