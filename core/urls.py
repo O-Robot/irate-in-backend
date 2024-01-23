@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from decouple import config
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
 api_route = config('API_ROUTE')
 
 urlpatterns = [
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path(f'{api_route}/doc/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path(f'{api_route}/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    path(f'{api_route}/api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path(f'{api_route}/auth/', include('user.urls')),
 ]
