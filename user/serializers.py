@@ -1,6 +1,8 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import get_user_model
 from email_validator import validate_email, EmailNotValidError
+from .user_repository.repository import UserRepository
 
 class ListUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -31,9 +33,33 @@ class CreateUserSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(e)
         return super().validate(attrs)
 
+    def create(self, validated_data):
+        user_repository = UserRepository()
+        user = user_repository.create(validated_data)
+        return user
+
     def update(self, instance, validated_data):
         instance = super().update(instance, validated_data)
         if validated_data.get('password', False):
             instance.set_password(validated_data.get('password'))
             instance.save()
         return instance
+
+
+class CustomObtainTokenPairSerializer(TokenObtainPairSerializer):
+
+    @classmethod
+    def get_token(cls, user):
+        if not user.is_active:
+            raise exceptions.AuthenticationFailed(
+                _('Account not yet active.'), code='authentication')
+        token = super().get_token(user)
+        # Add custom claims
+        token.id = user.id
+        token['email'] = user.email
+        if user.firstname and user.lastname:
+            token['fullname'] = user.firstname + ' ' + user.lastname
+        if user.image:
+            token['image'] = user.image.url
+        user.save_last_login()
+        return token
