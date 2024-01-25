@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     'user',
+    'chat'
 ]
 
 AUTH_USER_MODEL = "user.User"
@@ -207,4 +208,9 @@ SPECTACULAR_SETTINGS = {
     'OAUTH2_SCOPES': None,
 }
 
+# Google OAUTH Credentials
+GOOGLE_OAUTH2_CLIENT_ID = config('GOOGLE_CLIENT_ID')
+GOOGLE_OAUTH2_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
+GOOGLE_OAUTH2_PROJECT_ID = config('GOOGLE_PROJECT_ID')
+BASE_BACKEND_URL = "http://localhost:8000/"
 # djangorestframework-simplejwt settings

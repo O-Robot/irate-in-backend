@@ -45,3 +45,5 @@ locale/
 
 htmlcov/
 .coverage
+
+user/google_auth/

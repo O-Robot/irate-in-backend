@@ -14,11 +14,12 @@ class UserRepositoryInterface(ABC):
         pass
 
     @abstractmethod
+    def get_by_email(self, email: str) -> User:
+        pass
+
+    @abstractmethod
     def create(self, data) -> User:
         pass
-
-    def update(self, data) -> User:
-        pass
-
+    
     def delete(self, user_id: str) -> None:
         pass
