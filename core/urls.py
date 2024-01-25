@@ -28,4 +28,5 @@ urlpatterns = [
     path(f'{api_route}/api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path(f'{api_route}/auth/', include('user.urls')),
+    path(f'{api_route}/chat/', include('chat.urls')),
 ]
