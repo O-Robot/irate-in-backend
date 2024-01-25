@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenRefreshView
 from .views import AuthViewset, CustomObtainTokenPairView
-from .google_auth.views import GoogleLoginAPIView, GoogleLoginRedirectAPIView
+# from .google_auth.views import GoogleLoginAPIView, GoogleLoginRedirectAPIView
 
 
 app_name = 'user'
