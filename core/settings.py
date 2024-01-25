@@ -214,3 +214,15 @@ GOOGLE_OAUTH2_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
 GOOGLE_OAUTH2_PROJECT_ID = config('GOOGLE_PROJECT_ID')
 BASE_BACKEND_URL = "http://localhost:8000/"
 # djangorestframework-simplejwt settings
+
+REDIS_URL = config('REDIS_URL')
+# Channels Settings
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [REDIS_URL],
+        },
+        # 'ROUTING': 'core'
+    },
+}
