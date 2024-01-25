@@ -9,6 +9,6 @@ router.register('user-chats', views.ChatViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('', views.index, name='index'),
-    path('<str:room_name>/', views.room, name='room'),
+    path('home/', views.index, name='index'),
+    path('home/<str:room_name>/', views.room, name='room'),
 ]

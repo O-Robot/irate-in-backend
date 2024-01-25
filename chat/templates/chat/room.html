@@ -14,13 +14,13 @@
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
         const chatSocket = new WebSocket(
-            'wss://'
+            'ws://'
             + window.location.host
             + '/ws/chat/'
             + roomName
             + '/'
-            + '625c2ee2-a7f1-4595-92c5-c4d7c3c55d8a'
-            + '/b9aa1e02-56a3-4f89-8d5b-9beb55b04a1b/'
+            + '1aa4ab20-321b-4cb5-9101-44fb420c6b3f'
+            + '/9b358f41-d4dc-4b8d-8f87-2a147576cebd/'
         );
 
         chatSocket.onmessage = function(e) {
@@ -45,7 +45,7 @@
             const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
                 'message': message,
-                'author': '625c2ee2-a7f1-4595-92c5-c4d7c3c55d8a'
+                'author': '1aa4ab20-321b-4cb5-9101-44fb420c6b3f'
             }));
             messageInputDom.value = '';
         };
