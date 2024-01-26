@@ -7,7 +7,7 @@ import uuid
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     email = models.EmailField(null=True, blank=True, unique=True)
-    password = models.CharField(max_length=255, null=True)
+    password = models.CharField(max_length=255,  blank=True, null=True)
     firstname = models.CharField(max_length=255, blank=True, null=True)
     lastname = models.CharField(max_length=255, blank=True, null=True)
     image = models.FileField(upload_to='users/', blank=True, null=True)

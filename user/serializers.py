@@ -46,6 +46,11 @@ class CreateUserSerializer(serializers.ModelSerializer):
         return instance
 
 
+class InviteUserSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+    name = serializers.CharField(required=False)
+
+
 class CustomObtainTokenPairSerializer(TokenObtainPairSerializer):
 
     @classmethod

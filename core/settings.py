@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from decouple import config
+from datetime import timedelta
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -209,7 +210,14 @@ GOOGLE_OAUTH2_CLIENT_ID = config('GOOGLE_CLIENT_ID')
 GOOGLE_OAUTH2_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
 GOOGLE_OAUTH2_PROJECT_ID = config('GOOGLE_PROJECT_ID')
 BASE_BACKEND_URL = "http://localhost:8000/"
+
+
 # djangorestframework-simplejwt settings
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=100),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=4),
+}
+
 
 REDIS_PORT = config('REDIS_PORT')
 REDIS_HOST = config('REDIS_HOST')
@@ -223,3 +231,12 @@ CHANNEL_LAYERS = {
         # 'ROUTING': 'core'
     },
 }
+
+
+# Email server settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
