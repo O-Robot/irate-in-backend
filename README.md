@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to the iRatein Chat Application! This project is a simple chat application built using Django Rest Framework. Users can create accounts, join chat rooms, and engage in real-time conversations.
+Welcome to the iRatein Chat Application! This project is a simple chat application built using Django Rest Framework and Channels. Users can create accounts, join chat rooms, and engage in real-time conversations.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ Before you start, make sure you have the following prerequisites installed:
 1. **Clone the repository:**
     ```bash
     git clone https://github.com/O-Robot/irate-in-backend.git
-    cd django-chat-app
+    cd irate-in-backend
     ```
 
 2. **Create a virtual environment and install dependencies:**
@@ -78,6 +78,6 @@ Check out the live demo of the application hosted at [https://irateinchat.python
 
 ## Contact
 
-For any inquiries, please contact [adewaleogooluwani@gmail.com].
+For any inquiries, please contact [adewaleogooluwani@gmail.com](adewaleogooluwani@gmail.com).
 
 Happy chatting! 🎉
