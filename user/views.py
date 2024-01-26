@@ -20,8 +20,6 @@ class AuthViewset(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.action in ['create']:
             return CreateUserSerializer
-        elif self.action in ['add_user']:
-            return InviteUserSerializer
         return super().get_serializer_class()
 
     def get_permissions(self):
