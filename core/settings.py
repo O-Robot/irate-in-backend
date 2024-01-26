@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['irateinchat.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'irateinchat.pythonanywhere.com']
 
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -211,13 +211,14 @@ GOOGLE_OAUTH2_PROJECT_ID = config('GOOGLE_PROJECT_ID')
 BASE_BACKEND_URL = "http://localhost:8000/"
 # djangorestframework-simplejwt settings
 
-REDIS_URL = config('REDIS_URL')
+REDIS_PORT = config('REDIS_PORT')
+REDIS_HOST = config('REDIS_HOST')
 # Channels Settings
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [REDIS_URL],
+            'hosts': [(REDIS_HOST, REDIS_PORT)],
         },
         # 'ROUTING': 'core'
     },
