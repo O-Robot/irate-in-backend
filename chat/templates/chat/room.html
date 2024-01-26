@@ -19,8 +19,8 @@
             + '/ws/chat/'
             + roomName
             + '/'
-            + '6b93e393-48a2-4c67-a33e-e25e3f544e5a'
-            + '/b7279c6f-c3c3-4cf8-9909-63886bcf6d97/'
+            + 'f547ea4b-95e1-44b7-a60d-59914c028c9f'
+            + '/693401dc-9fe4-451a-a9e6-a512fca1e58e/'
         );
 
         chatSocket.onmessage = function(e) {
@@ -45,7 +45,7 @@
             const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
                 'message': message,
-                'author': '6b93e393-48a2-4c67-a33e-e25e3f544e5a'
+                'author': 'f547ea4b-95e1-44b7-a60d-59914c028c9f'
             }));
             messageInputDom.value = '';
         };
