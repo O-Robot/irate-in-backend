@@ -39,10 +39,6 @@ class AuthViewset(viewsets.ModelViewSet):
                 email = [request.data['email']]
                 user_repository = UserRepository()
                 user = user_repository.get_by_email(email)
-
-                if not user:
-                    return Response({'success': False, 'errors': 'user exists'}, status=status.HTTP_409_CONFLICT)
-
                 client_url = config('CLIENT_URL')
                 message = f'You have been invited to our chat app by {request.user.firstname} {request.user.lastname}. Click to join {client_url}/signup'
                 send_email(subject, message, email)
