@@ -28,7 +28,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '13.60.29.183', 'irateinchat.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '13.60.29.183', 'irateinchat.pythonanywhere.com',
+                 'ec2-13-60-29-183.eu-north-1.compute.amazonaws.com']
 
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -156,7 +157,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = ( 
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
